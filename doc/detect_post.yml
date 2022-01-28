@@ -1,0 +1,343 @@
+异常检测接口
+输入设备的实时数据，该接口返回是否存在异常以及异常的种类
+---
+parameters:
+ - name: equipmentId
+   in: formData
+   type: string
+   required: true
+   default: '6acad79416b640a4842dfef6bc36cda8'
+   description: '设备的 equipment_id'
+ - name: equipmentState
+   in: formData
+   type: string
+   required: true
+   default: 1
+   description: '设备状态'
+ - name: equipmentRssi
+   in: formData
+   type: number
+   required: true
+   default: 100
+   description: '信号强度'
+ - name: createDate
+   in: formData
+   type: string
+   required: true
+   default: '2021-08-22 12:00:00'
+   description: '数据的时间'
+ - name: leakage
+   in: formData
+   type: number
+   required: true
+   default: 0.1
+   description: '漏电值(mA)'
+ - name: temperatureA
+   in: formData
+   type: number
+   required: true
+   default: 29.3
+   description: 'A相温度(℃)'
+ - name: temperatureB
+   in: formData
+   type: number
+   required: true
+   default: 29.1
+   description: 'B相温度(℃)'
+ - name: temperatureC
+   in: formData
+   type: number
+   required: true
+   default: 29.9
+   description: 'C相温度(℃)'
+ - name: temperatureN
+   in: formData
+   type: number
+   required: true
+   default: 28.1
+   description: 'N相温度(℃)'
+ - name: currentA
+   in: formData
+   type: number
+   required: true
+   default: 7.6
+   description: 'A相电流(A)'
+ - name: currentB
+   in: formData
+   type: number
+   required: true
+   default: 4.5
+   description: 'B相电流(A)'
+ - name: currentC
+   in: formData
+   type: number
+   required: true
+   default: 6.2
+   description: 'C相电流(A)'
+ - name: voltageA
+   in: formData
+   type: number
+   required: true
+   default: 238.7
+   description: 'A相电压(V)'
+ - name: voltageB
+   in: formData
+   type: number
+   required: true
+   default: 240.2
+   description: 'B相电压(V)'
+ - name: voltageC
+   in: formData
+   type: number
+   required: true
+   default: 231.4
+   description: 'C相电压(V)'
+ - name: rateA
+   in: formData
+   type: number
+   required: true
+   default: 50.0
+   description: 'A相频率(Hz)'
+ - name: rateB
+   in: formData
+   type: number
+   required: true
+   default: 50.0
+   description: 'B相频率(Hz)'
+ - name: rateC
+   in: formData
+   type: number
+   required: true
+   default: 50.0
+   description: 'C相频率(Hz)'
+ - name: voltageAngleA
+   in: formData
+   type: number
+   required: true
+   default: 0.1
+   description: 'A相电压相位角(°)'
+ - name: voltageAngleB
+   in: formData
+   type: number
+   required: true
+   default: 120.1
+   description: 'B相电压相位角(°)'
+ - name: voltageAngleC
+   in: formData
+   type: number
+   required: true
+   default: 239.2
+   description: 'C相电压相位角(°)'
+ - name: currentAngleA
+   in: formData
+   type: number
+   required: true
+   default: 349.3
+   description: 'A相电流相位角(°)'
+ - name: currentAngleB
+   in: formData
+   type: number
+   required: true
+   default: 106.2
+   description: 'B相电流相位角(°)'
+ - name: currentAngleC
+   in: formData
+   type: number
+   required: true
+   default: 234.8
+   description: 'C相电流相位角(°)'
+ - name: powerFactorA
+   in: formData
+   type: number
+   required: true
+   default: 98.3
+   description: 'A相功率因数(％)'
+ - name: powerFactorB
+   in: formData
+   type: number
+   required: true
+   default: 97.0
+   description: 'B相功率因数(％)'
+ - name: powerFactorC
+   in: formData
+   type: number
+   required: true
+   default: 99.7
+   description: 'C相功率因数(％)'
+ - name: powerFactorSum
+   in: formData
+   type: number
+   required: true
+   default: 98.4
+   description: '合相功率因数(％)'
+ - name: powerUsefulA
+   in: formData
+   type: number
+   required: true
+   default: 1.7
+   description: 'A相有功功率(KW)'
+ - name: powerUsefulB
+   in: formData
+   type: number
+   required: true
+   default: 0.9
+   description: 'B相有功功率(KW)'
+ - name: powerUsefulC
+   in: formData
+   type: number
+   required: true
+   default: 1.4
+   description: 'C相有功功率(KW)'
+ - name: powerUsefulSum
+   in: formData
+   type: number
+   required: true
+   default: 4.0
+   description: '合相有功功率(KW)'
+ - name: powerUselessA
+   in: formData
+   type: number
+   required: true
+   default: 0.3
+   description: 'A相无功功率(KVar)'
+ - name: powerUselessB
+   in: formData
+   type: number
+   required: true
+   default: 0.3
+   description: 'B相无功功率(KVar)'
+ - name: powerUselessC
+   in: formData
+   type: number
+   required: true
+   default: 0.1
+   description: 'C相无功功率(KVar)'
+ - name: powerUselessSum
+   in: formData
+   type: number
+   required: true
+   default: 0.6
+   description: '合相无功功率(KVar)'
+ - name: powerApparentA
+   in: formData
+   type: number
+   required: true
+   default: 1.7
+   description: 'A相视在功率(KVA)'
+ - name: powerApparentB
+   in: formData
+   type: number
+   required: true
+   default: 0.9
+   description: 'B相视在功率(KVA)'
+ - name: powerApparentC
+   in: formData
+   type: number
+   required: true
+   default: 1.4
+   description: 'C相视在功率(KVA)'
+ - name: powerApparentSum
+   in: formData
+   type: number
+   required: true
+   default: 4.0
+   description: '合相视在功率(KVA)'
+ - name: energyUsefulA
+   in: formData
+   type: number
+   required: true
+   default: 1163.5
+   description: 'A相有功电能(KWH)'
+ - name: energyUsefulB
+   in: formData
+   type: number
+   required: true
+   default: 1454.2
+   description: 'B相有功电能(KWH)'
+ - name: energyUsefulC
+   in: formData
+   type: number
+   required: true
+   default: 75.0
+   description: 'C相有功电能(KWH)'
+ - name: energyUsefulSum
+   in: formData
+   type: number
+   required: true
+   default: 766.3
+   description: '合相有功电能(KWH)'
+ - name: energyUselessA
+   in: formData
+   type: number
+   required: true
+   default: 1692.6
+   description: 'A相无功电能(KVarH)'
+ - name: energyUselessB
+   in: formData
+   type: number
+   required: true
+   default: 107.9
+   description: 'B相无功电能(KVarH)'
+ - name: energyUselessC
+   in: formData
+   type: number
+   required: true
+   default: 968.8
+   description: 'C相无功电能(KVarH)'
+ - name: energyUselessSum
+   in: formData
+   type: number
+   required: true
+   default: 527.0
+   description: '合相无功电能(KVarH)'
+ - name: energyApparentA
+   in: formData
+   type: number
+   required: true
+   default: 1533.0
+   description: 'A相视在电能(KVAH)'
+ - name: energyApparentB
+   in: formData
+   type: number
+   required: true
+   default: 1924.1
+   description: 'B相视在电能(KVAH)'
+ - name: energyApparentC
+   in: formData
+   type: number
+   required: true
+   default: 113.1
+   description: 'C相视在电能(KVAH)'
+ - name: energyApparentSum
+   in: formData
+   type: number
+   required: true
+   default: 1852.3
+   description: '合相视在电能(KVAH)'
+ - name: balanceCurrent
+   in: formData
+   type: number
+   required: true
+   default: 59.2
+   description: '三相电流平衡度(％)'
+ - name: balanceVoltage
+   in: formData
+   type: number
+   required: true
+   default: 98.0
+   description: '三相电压平衡度(％)'
+ - name: airPollution
+   in: formData
+   type: number
+   required: true
+   default: 45.9
+   description: '空气污染物(ppm)'
+ - name: pm25
+   in: formData
+   type: number
+   required: true
+   default: 3.1
+   description: 'PM2.5(ug/m3)'
+responses:
+ 200:
+  description: '返回一个字典，包含异常信息'

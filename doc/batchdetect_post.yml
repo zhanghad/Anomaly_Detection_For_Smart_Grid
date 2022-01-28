@@ -1,0 +1,130 @@
+批量异常检测
+传入一个json字符串，内包含一个列表，包含多条需检测的数据
+---
+definitions:
+ BatchData:
+    type: object
+    properties:
+     equipmentId:
+       type: string
+     equipmentState:
+       type: string
+     equipmentRssi:
+       type: number
+     createDate:
+       type: string
+     leakage:
+       type: number
+     temperatureA:
+       type: number
+     temperatureB:
+       type: number
+     temperatureC:
+       type: number
+     temperatureN:
+       type: number
+     currentA:
+       type: number
+     currentB:
+       type: number
+     currentC:
+       type: number
+     voltageA:
+       type: number
+     voltageB:
+       type: number
+     voltageC:
+       type: number
+     rateA:
+       type: number
+     rateB:
+       type: number
+     rateC:
+       type: number
+     voltageAngleA:
+       type: number
+     voltageAngleB:
+       type: number
+     voltageAngleC:
+       type: number
+     currentAngleA:
+       type: number
+     currentAngleB:
+       type: number
+     currentAngleC:
+       type: number
+     powerFactorA:
+       type: number
+     powerFactorB:
+       type: number
+     powerFactorC:
+       type: number
+     powerFactorSum:
+       type: number
+     powerUsefulA:
+       type: number
+     powerUsefulB:
+       type: number
+     powerUsefulC:
+       type: number
+     powerUsefulSum:
+       type: number
+     powerUselessA:
+       type: number
+     powerUselessB:
+       type: number
+     powerUselessC:
+       type: number
+     powerUselessSum:
+       type: number
+     powerApparentA:
+       type: number
+     powerApparentB:
+       type: number
+     powerApparentC:
+       type: number
+     powerApparentSum:
+       type: number
+     energyUsefulA:
+       type: number
+     energyUsefulB:
+       type: number
+     energyUsefulC:
+       type: number
+     energyUsefulSum:
+       type: number
+     energyUselessA:
+       type: number
+     energyUselessB:
+       type: number
+     energyUselessC:
+       type: number
+     energyUselessSum:
+       type: number
+     energyApparentA:
+       type: number
+     energyApparentB:
+       type: number
+     energyApparentC:
+       type: number
+     energyApparentSum:
+       type: number
+     balanceCurrent:
+       type: number
+     balanceVoltage:
+       type: number
+     airPollution:
+       type: number
+     pm25:
+       type: number
+parameters:
+ - name: batchData
+   in: formData
+   type: string
+   required: true
+   description: 'json字符串，传感器上传数据的列表，每一项对应一条数据'
+   default: '{"data": [{"equipmentId": "00a395443b0c43d78dd8fc295326d439", "equipmentState": "1", "equipmentRssi": 100, "createDate": "2021-08-22 12:00:00", "leakage": 10.6, "temperatureA": 29.3, "temperatureB": 29.3, "temperatureC": 29.3, "temperatureN": 29.3, "currentA": 7.6, "currentB": 4.5, "currentC": 6.2, "voltageA": 238.7, "voltageB": 240.2, "voltageC": 231.4, "rateA": 50.0, "rateB": 50.0, "rateC": 50.0, "voltageAngleA": 0.1, "voltageAngleB": 120.1, "voltageAngleC": 239.2, "currentAngleA": 349.3, "currentAngleB": 106.2, "currentAngleC": 234.8, "powerFactorA": 98.3, "powerFactorB": 97.0, "powerFactorC": 99.7, "powerFactorSum": 98.4, "powerUsefulA": 1.7, "powerUsefulB": 0.9, "powerUsefulC": 1.4, "powerUsefulSum": 4.0, "powerUselessA": 0.3, "powerUselessB": 0.3, "powerUselessC": 0.1, "powerUselessSum": 0.6, "powerApparentA": 1.7, "powerApparentB": 0.9, "powerApparentC": 1.4, "powerApparentSum": 4.0, "energyUsefulA": 1163.5, "energyUsefulB": 1454.2, "energyUsefulC": 75.0, "energyUsefulSum": 766.3, "energyUselessA": 1692.6, "energyUselessB": 107.9, "energyUselessC": 968.8, "energyUselessSum": 527.0, "energyApparentA": 1533.0, "energyApparentB": 1924.1, "energyApparentC": 113.1, "energyApparentSum": 1852.3, "balanceCurrent": 59.2, "balanceVoltage": 98.0, "airPollution": 45.9, "pm25": 3.1}, {"equipmentId": "00bd36f18266459eada4ec1f54c718f0", "equipmentState": "1", "equipmentRssi": 100, "createDate": "2021-08-22 12:00:00", "leakage": 10.6, "temperatureA": 29.3, "temperatureB": 29.3, "temperatureC": 29.3, "temperatureN": 29.3, "currentA": 7.6, "currentB": 4.5, "currentC": 6.2, "voltageA": 238.7, "voltageB": 240.2, "voltageC": 231.4, "rateA": 50.0, "rateB": 50.0, "rateC": 50.0, "voltageAngleA": 0.1, "voltageAngleB": 120.1, "voltageAngleC": 239.2, "currentAngleA": 349.3, "currentAngleB": 106.2, "currentAngleC": 234.8, "powerFactorA": 98.3, "powerFactorB": 97.0, "powerFactorC": 99.7, "powerFactorSum": 98.4, "powerUsefulA": 1.7, "powerUsefulB": 0.9, "powerUsefulC": 1.4, "powerUsefulSum": 4.0, "powerUselessA": 0.3, "powerUselessB": 0.3, "powerUselessC": 0.1, "powerUselessSum": 0.6, "powerApparentA": 1.7, "powerApparentB": 0.9, "powerApparentC": 1.4, "powerApparentSum": 4.0, "energyUsefulA": 1163.5, "energyUsefulB": 1454.2, "energyUsefulC": 75.0, "energyUsefulSum": 766.3, "energyUselessA": 1692.6, "energyUselessB": 107.9, "energyUselessC": 968.8, "energyUselessSum": 527.0, "energyApparentA": 1533.0, "energyApparentB": 1924.1, "energyApparentC": 113.1, "energyApparentSum": 1852.3, "balanceCurrent": 59.2, "balanceVoltage": 98.0, "airPollution": 45.9, "pm25": 3.1}]}'
+
+responses:
+ 200:
+  description: '返回值为json类型，内有一个列表，包含每一项数据的异常检测结果'

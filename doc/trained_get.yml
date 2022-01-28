@@ -1,0 +1,6 @@
+获取所有支持异常检测的设备
+获取所有拥有异常检测模型的设备的 equipment_id
+---
+responses:
+ '200':
+   description: 返回一个列表，包含所有可使用模型的equipment_id，其中每个元素类型为 string

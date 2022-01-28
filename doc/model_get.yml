@@ -1,0 +1,17 @@
+获取设备模型的详细信息
+获取设备模型内部的参数、细分模型、训练日志
+---
+parameters:
+ - name: equipmentId
+   in: query
+   type: string
+   required: true
+   default: 'a1282ee9199241b190f2ea932923a7fb'
+   description: '设备的 equipment_id'
+responses:
+ 200:
+  description: '成功获取模型的详细信息'
+ 401:
+  description: '模型正在训练，不可操作'
+ 404:
+  description: '模型不存在'

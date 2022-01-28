@@ -1,0 +1,14 @@
+检查设备是否支持异常检测
+检查设备是否有对应的异常检测模型，如果没有，则需要调用训练接口进行训练
+---
+parameters:
+ - name: equipmentId
+   in: query
+   type: string
+   required: true
+   default: '6acad79416b640a4842dfef6bc36cda8'
+   description: '设备的 equipment_id'
+responses:
+ 200:
+  description: '返回json,说明模型的状态'
+  default: {"status": "ready"}

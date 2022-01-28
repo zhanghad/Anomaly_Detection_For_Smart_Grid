@@ -1,0 +1,36 @@
+训练设备的异常检测模型
+自动从hybackup中获取设备的历史数据训练异常检测模型
+由于需要通过扫描数据库中多个历史表，因此耗时较长
+---
+parameters:
+ - name: equipmentId
+   in: formData
+   type: string
+   required: true
+   default: 'fe87c748b7034af49c88d6f7f52ee42c'
+   description: '设备的 equipment_id'
+ - name: datetimeStart
+   in: formData
+   type: string
+   required: true
+   default: '2020-10-16 14:00:00'
+   description: '训练数据的开始时间'
+ - name: datetimeEnd
+   in: formData
+   type: string
+   required: true
+   default: '2021-08-05 00:00:00'
+   description: '训练数据的结束时间'
+ - name: includeGas
+   in: formData
+   type: string
+   required: true
+   default: '0'
+   description: '该设备是否有气体传感器,0表示没有,1表示有'
+responses:
+ 201:
+   description: '训练成功，返回训练日志'
+ 401:
+   description: '模型正在训练，不可操作'
+ 500:
+   description: '训练失败'

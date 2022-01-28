@@ -1,0 +1,113 @@
+修改模型的硬件阈值
+硬件阈值由设备硬件决定，超过该阈值立刻报警
+---
+parameters:
+ - name: equipmentId
+   in: formData
+   type: string
+   required: true
+   default: '6acad79416b640a4842dfef6bc36cda8'
+   description: '设备的 equipment_id'
+ - name: leakage
+   in: formData
+   type: number
+   required: true
+   default: 5000.0
+   description: '漏电值(mA)'
+ - name: temperatureA
+   in: formData
+   type: number
+   required: true
+   default: 75.0
+   description: 'A相温度(℃)'
+ - name: temperatureB
+   in: formData
+   type: number
+   required: true
+   default: 75.0
+   description: 'B相温度(℃)'
+ - name: temperatureC
+   in: formData
+   type: number
+   required: true
+   default: 75.0
+   description: 'C相温度(℃)'
+ - name: temperatureN
+   in: formData
+   type: number
+   required: true
+   default: 75.0
+   description: 'N相温度(℃)'
+ - name: currentA
+   in: formData
+   type: number
+   required: true
+   default: 150.0
+   description: 'A相电流(A)'
+ - name: currentB
+   in: formData
+   type: number
+   required: true
+   default: 150.0
+   description: 'B相电流(A)'
+ - name: currentC
+   in: formData
+   type: number
+   required: true
+   default: 150.0
+   description: 'C相电流(A)'
+ - name: voltageAUpper
+   in: formData
+   type: number
+   required: true
+   default: 253.0
+   description: 'A相电压(V)上界'
+ - name: voltageBUpper
+   in: formData
+   type: number
+   required: true
+   default: 253.0
+   description: 'B相电压(V)上界'
+ - name: voltageCUpper
+   in: formData
+   type: number
+   required: true
+   default: 253.0
+   description: 'C相电压(V)上界'
+ - name: voltageALower
+   in: formData
+   type: number
+   required: true
+   default: 187.0
+   description: 'A相电压(V)下界'
+ - name: voltageBLower
+   in: formData
+   type: number
+   required: true
+   default: 187.0
+   description: 'B相电压(V)下界'
+ - name: voltageCLower
+   in: formData
+   type: number
+   required: true
+   default: 187.0
+   description: 'C相电压(V)下界'
+ - name: airPollution
+   in: formData
+   type: number
+   required: true
+   default: 200.0
+   description: '空气污染物(ppm)'
+ - name: pm25
+   in: formData
+   type: number
+   required: true
+   default: 400.0
+   description: 'PM2.5(ug/m3)'
+responses:
+ 200:
+  description: '是否成功修改'
+ 401:
+  description: '模型正在训练，不可操作'
+ 404:
+  description: '模型不存在'

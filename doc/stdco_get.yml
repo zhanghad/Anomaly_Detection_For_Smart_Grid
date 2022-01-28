@@ -1,0 +1,19 @@
+获取模型的标准差系数
+最终异常检测阈值 = 模型阈值 + 阈值偏移
+模型阈值 = 模型预测 + 标准差系数 * 历史数据标准差
+标准差系数,阈值偏移均可以修改
+---
+parameters:
+ - name: equipmentId
+   in: query
+   type: string
+   required: true
+   default: '6acad79416b640a4842dfef6bc36cda8'
+   description: '设备的 equipment_id'
+responses:
+ 200:
+  description: '返回一个字典，包含模型的各项阈值偏移'
+ 401:
+  description: '模型正在训练，不可操作'
+ 404:
+  description: '模型不存在'
